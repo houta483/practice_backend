@@ -13,7 +13,7 @@ module.exports = {
     return next();
   },
 
-  async getMessage(req, res, next) {
+  getMessage(req, res, next) {
     const getMessageScript = 'SELECT * FROM Message'
 
     db.query(getMessageScript, (err, result) => {
