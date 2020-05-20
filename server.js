@@ -8,6 +8,11 @@ const PORT = 3306;
 app.use(cookieParser())
 app.use(bodyParser.json())
 
+app.get('/tanner', (req, res) => {
+  res.status(200).send('test')
+  }
+)
+
 app.post('/message', messageController.postMessage, (req, res) => {
   res.status(200).json(res.locals.posted)
   }
