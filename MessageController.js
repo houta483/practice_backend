@@ -2,7 +2,8 @@ const db = require('./MessageModel');
 
 module.exports = {
   postMessage(req, res, next) {
-    const { message, password } = req.body
+    const message = req.body.message
+    const password = req.body.password
     const postMessageScript = `INSERT INTO Message (message, password) VALUES ("${message}", "${password}")`
 
     db.query(postMessageScript, (err, result) => {
@@ -24,7 +25,7 @@ module.exports = {
   },
 
   deleteMessage(req, res, next) {
-    const { id } = req.body
+    const id = req.body.id
     const deleteMessageScript = `DELETE FROM Messages WHERE id=${id}`
 
     db.query(deleteMessageScript, (error, result) => {
